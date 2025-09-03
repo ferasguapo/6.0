@@ -14,10 +14,6 @@ export default function InstallButton() {
     };
     window.addEventListener("beforeinstallprompt", handler);
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js");
-    }
-
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
@@ -37,9 +33,11 @@ export default function InstallButton() {
   return (
     <button
       onClick={handleClick}
+      id="install-button"
       className="ml-4 px-3 py-1 rounded bg-red-800 text-white hover:bg-red-700"
     >
       Download OBuddy App
     </button>
   );
 }
+
